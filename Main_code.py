@@ -48,11 +48,11 @@ df = pd.read_excel(filepath)
 Hijri_Holidays = df[df['Calendar Type'] == 'Hijri'].drop(columns=['Calendar Type']).values.tolist()
 Jalali_Holidays = df[df['Calendar Type'] == 'Jalali'].drop(columns=['Calendar Type']).values.tolist() 
 
-Delta = datetime.timedelta(1)
-MiladiDate = datetime.date(2004, 1, 1) - Delta
+Delta = datetime.timedelta(1)                       # One day object
+MiladiDate = datetime.date(2022, 1, 1) - Delta      # Start Date in Gregorian
 rows_list= []
-year = 1
-iter = int(year * 366)
+year = 1                                            # Number of years to sweep
+iter = int(year * 366)                              # Number of days to sweep
 
 for i in range(iter):
     info = {}
@@ -75,9 +75,6 @@ for i in range(iter):
     if info['Description'] == None: continue
     print(info['Description'])
     rows_list.append(info)
-
-df = pd.DataFrame(rows_list)
-df.tail(5)
 
 df = pd.DataFrame(rows_list)
 df.tail(5)
