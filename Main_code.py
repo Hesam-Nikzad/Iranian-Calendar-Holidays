@@ -49,9 +49,9 @@ Hijri_Holidays = df[df['Calendar Type'] == 'Hijri'].drop(columns=['Calendar Type
 Jalali_Holidays = df[df['Calendar Type'] == 'Jalali'].drop(columns=['Calendar Type']).values.tolist() 
 
 Delta = datetime.timedelta(1)                       # One day object
-MiladiDate = datetime.date(2022, 1, 1) - Delta      # Start Date in Gregorian
+MiladiDate = datetime.date(2000, 1, 1) - Delta      # Start Date in Gregorian
 rows_list= []
-year = 1                                            # Number of years to sweep
+year = 10                                            # Number of years to sweep
 iter = int(year * 366)                              # Number of days to sweep
 
 for i in range(iter):
